@@ -52,7 +52,8 @@ App::error(function(Exception $exception, $code)
 });
 
 // Be a little careful with this approach. If the web layer is the
-// output input you care about, it's probably fine.
+// only input you care about, it's probably fine. Otherwise, keep
+// this in your controller
 App::error(function(Acme\Forms\FormValidationException $e)
 {
 	return Redirect::back()->withInput()->withErrors($e->getErrors());
